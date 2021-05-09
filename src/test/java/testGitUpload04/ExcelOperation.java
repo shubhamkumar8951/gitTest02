@@ -13,7 +13,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelOperation {
 	
-	public String getData(String sheetName, String testCaseName, String columnName) throws IOException {
+	public synchronized  String getData(String sheetName, String testCaseName, String columnName) throws IOException {
 
 		File file = new File(System.getProperty("user.dir") + "/src/test/resources/Test.xlsx");
 		FileInputStream fis = new FileInputStream(file);
@@ -51,7 +51,7 @@ public class ExcelOperation {
 	
 	
 	
-	public String putData(String sheetName, String testCaseName, String columnName, String val) throws IOException {
+	public synchronized String putData(String sheetName, String testCaseName, String columnName, String val) throws IOException {
 
 		File file = new File(System.getProperty("user.dir") + "/src/test/resources/Test.xlsx");
 		FileOutputStream out;
